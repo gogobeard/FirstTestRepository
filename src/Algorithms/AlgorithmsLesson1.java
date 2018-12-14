@@ -153,38 +153,49 @@ public class AlgorithmsLesson1 {
                 humanAge();
             }
             String ageOfHuman = Integer.toString(age);
-            switch (ageOfHuman.length()) {
-                case 1:
-                    age = Integer.parseInt(ageOfHuman);
-                    if (age == 0 || age >= 5) {
-                        System.out.println("Возраст: " + age + " лет.");
-                    } else if (age >= 2 & age <= 4 ) {
-                        System.out.println("Возраст: " + age + " года.");
-                    }
-                    break;
-                case 2:
-                    age = Integer.parseInt(ageOfHuman.substring(1,2));
-                    if (age == 0 || age >= 5) {
-                        System.out.println("Возраст: " + age + " лет.");
-                    } else if (age >= 2 & age <= 4 ) {
-                        System.out.println("Возраст: " + age + " года.");
-                    }
-                    break;
-                case 3:
-                    age = Integer.parseInt(ageOfHuman.substring(2,3));
-                    if (age == 0 || age >= 5) {
-                        System.out.println("Возраст: " + age + " лет.");
-                    } else if (age >= 2 & age <= 4 ) {
-                        System.out.println("Возраст: " + age + " года.");
-                    }
-                    break;
+
+            int lastNumberOfAge = 0;
+            if (ageOfHuman.length() == 1) {
+                lastNumberOfAge = Integer.parseInt(ageOfHuman);
+            } else if (ageOfHuman.length() == 2) {
+                lastNumberOfAge = Integer.parseInt(ageOfHuman.substring(0, 1));
+            } else if (ageOfHuman.length() == 3) {
+                lastNumberOfAge = Integer.parseInt(ageOfHuman.substring(1));
+            } else if (ageOfHuman.length() > 3) {
+                System.out.println("Таких людей не бывает :) Попробуйте еще раз.");
+                int age
+                humanAge();
+            }
+
+//            switch (ageOfHuman.length()) {
+//                case 1:
+//                    lastNumberOfAge = Integer.parseInt(ageOfHuman);
+//                    break;
+//                case 2:
+//                    lastNumberOfAge = Integer.parseInt(ageOfHuman.substring(0, 1));
+//                    if (lastNumberOfAge == 0 || lastNumberOfAge >= 5)
+//                    break;
+//                case 3:
+//                    lastNumberOfAge = Integer.parseInt(ageOfHuman.substring(1));
+//                    break;
+//                default:
+//                    System.out.println("Пока никто не доживал до четырехзначного возраста. :)");
+//                    humanAge();
+//                    break;
+//            }
+
+            if (lastNumberOfAge == 0 || lastNumberOfAge >= 5) {
+                System.out.println("Возраст: " + age + " лет.");
+            } else if (lastNumberOfAge >= 2 && lastNumberOfAge <= 4) {
+                System.out.println("Возраст: " + age + " года.");
+            } else if (lastNumberOfAge == 1) {
+                System.out.println("Возраст: " + age + " год.");
             }
         }
         catch (InputMismatchException e) {
             System.out.println("Введите целое число.");
             humanAge();
         }
-
     }
 
 
